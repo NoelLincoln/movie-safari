@@ -1,0 +1,12 @@
+{
+  "name": "movie-safari",
+  "version": "1.0.0",
+  "description": "Movies-safari, your ultimate destination for all things cinema. Explore the latest movie reviews, trailers, news, and behind-the-scenes insights.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
