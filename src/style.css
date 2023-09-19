@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Azonix;
+  src: url('assets/fonts/Azonix.otf');
+}
+
+@font-face {
+  font-family: CreativeThoughts;
+  src: url('assets/fonts/CreativeThoughts-Regular.otf');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +27,7 @@
 
 .main-header {
   justify-content: space-between;
-  padding: 2% 10% 2% 10%;
+  font-family: 'Azonix', sans-serif;
 }
 
 .nav-links {
@@ -27,6 +37,15 @@
   font-size: 22px;
 }
 
-/* body {
-  background-image: url('./assets/img/movie-safari-logo.png');
-} */
+.nav-links:hover {
+  cursor: pointer;
+}
+
+.padding {
+  padding: 2% 10% 2% 10%;
+}
+
+footer {
+  font-family: 'CreativeThoughts', sans-serif;
+  font-size: 20px;
+}
