@@ -18,18 +18,21 @@ const fetchMovies = async () => {
       const commentsBtn = document.createElement('button');
       const heartBtn = document.createElement('button');
       const heartImg = document.createElement('img');
+      const movieImg = document.createElement('img');
       const reservationBtn = document.createElement('button');
       const likesCounter = document.createElement('p');
       const likesContainer = document.createElement('div');
+      const movieItem = document.createElement('li');
 
       nameP.innerText = `${data[i].name}`;
       heartImg.setAttribute('src', heartIcon);
       likesCounter.innerText = '2';
       heartBtn.appendChild(heartImg);
-      likesContainer.appendChild(heartBtn, likesCounter);
+      likesContainer.appendChild(heartBtn);
+      //   likesContainer.appendChildl(likesCounter);
 
-      commentsBtn.setAttribute('content', 'comments');
-      reservationBtn.setAttribute('content', 'reservation');
+      commentsBtn.innerText = 'comments';
+      reservationBtn.innerText = 'reservation';
       firstRow.appendChild(nameP);
       firstRow.appendChild(likesContainer);
 
@@ -37,13 +40,11 @@ const fetchMovies = async () => {
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
 
-      //   console.log(data[i]._embedded.show.image.medium);
-      const image = ` <li><img src="${data[i]._embedded.show.image.medium}" alt="" /></li>`;
-      //   image.appendChild(movieOptions);
-      console.log(movieOptions);
-      console.log(image);
-      moviesList.innerHTML += image;
-      //   moviesList.innerHTML(movieOptions);
+      movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
+      movieItem.appendChild(movieImg);
+      movieItem.appendChild(movieOptions);
+
+      moviesList.appendChild(movieItem);
     }
 
     // moviesList.innerHTML = data;
