@@ -1,0 +1,51 @@
+@font-face {
+  font-family: Azonix;
+  src: url('assets/fonts/Azonix.otf');
+}
+
+@font-face {
+  font-family: CreativeThoughts;
+  src: url('assets/fonts/CreativeThoughts-Regular.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.display-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-header {
+  justify-content: space-between;
+  font-family: 'Azonix', sans-serif;
+}
+
+.nav-links {
+  list-style: none;
+  gap: 20px;
+  padding: 20px 0 40px 0;
+  font-size: 22px;
+}
+
+.nav-links:hover {
+  cursor: pointer;
+}
+
+.padding {
+  padding: 2% 10% 2% 10%;
+}
+
+footer {
+  font-family: 'CreativeThoughts', sans-serif;
+  font-size: 20px;
+}
