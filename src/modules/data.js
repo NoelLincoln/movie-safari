@@ -45,6 +45,7 @@ const fetchMovies = async () => {
       movieOptions.appendChild(reservationBtn);
       movieOptions.classList.add('display-flex-column');
 
+      // eslint-disable-next-line no-underscore-dangle
       movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
 
       movieItem.appendChild(movieImg);
@@ -53,13 +54,6 @@ const fetchMovies = async () => {
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
     }
-
-    // moviesList.innerHTML = data;
-    // .map(
-    //   (movie) =>
-    //     ` <li><img src="${movie._embedded.show.image.medium}" alt="" /></li>`
-    // )
-    // .join('');
   } catch {
     // throw new Error();
   }
