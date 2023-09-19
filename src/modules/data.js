@@ -26,7 +26,7 @@ const fetchMovies = async () => {
 
       nameP.innerText = `${data[i].name}`;
       heartImg.setAttribute('src', heartIcon);
-      likesCounter.innerText = '2';
+      likesCounter.innerText = '2 Likes';
       heartBtn.appendChild(heartImg);
       likesContainer.appendChild(heartBtn);
       likesContainer.appendChild(likesCounter);
@@ -35,6 +35,7 @@ const fetchMovies = async () => {
       reservationBtn.innerText = 'reservation';
       firstRow.appendChild(nameP);
       firstRow.appendChild(likesContainer);
+      firstRow.classList.add('display-flex-row', 'first-row-display');
 
       movieOptions.appendChild(firstRow);
       movieOptions.appendChild(commentsBtn);
@@ -46,6 +47,7 @@ const fetchMovies = async () => {
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
       movieItem.classList.add('display-center');
+      movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
     }
 
