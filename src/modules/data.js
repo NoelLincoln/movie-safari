@@ -29,7 +29,7 @@ const fetchMovies = async () => {
       likesCounter.innerText = '2';
       heartBtn.appendChild(heartImg);
       likesContainer.appendChild(heartBtn);
-      //   likesContainer.appendChildl(likesCounter);
+      likesContainer.appendChild(likesCounter);
 
       commentsBtn.innerText = 'comments';
       reservationBtn.innerText = 'reservation';
