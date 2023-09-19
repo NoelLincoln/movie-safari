@@ -28,6 +28,7 @@ const fetchMovies = async () => {
       heartImg.setAttribute('src', heartIcon);
       likesCounter.innerText = '2 Likes';
       heartBtn.appendChild(heartImg);
+      heartBtn.classList.add('heart-btn');
       likesContainer.appendChild(heartBtn);
       likesContainer.appendChild(likesCounter);
 
