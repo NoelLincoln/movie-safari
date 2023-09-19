@@ -39,10 +39,11 @@
 
 .btn-class:hover {
   background-color: #007bff;
-  height: 32px;
+  /* height: 32px; */
+  transform: scale(1.02);
   border: none;
   color: #fff;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .display-flex-column {
