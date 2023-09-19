@@ -39,7 +39,6 @@
 
 .btn-class:hover {
   background-color: #007bff;
-  /* height: 32px; */
   transform: scale(1.02);
   border: none;
   color: #fff;
