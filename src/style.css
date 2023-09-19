@@ -45,6 +45,26 @@
   padding: 2% 10% 2% 10%;
 }
 
+.main-container {
+  padding: 2% 6% 2% 6%;
+}
+
+.movies-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  list-style: none;
+}
+
+.movies-list li {
+  border: 1px solid;
+}
+
 footer {
   font-family: 'CreativeThoughts', sans-serif;
   font-size: 20px;
