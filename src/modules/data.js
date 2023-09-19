@@ -1,6 +1,6 @@
 const moviesList = document.querySelector('.movies-list');
 const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
-const fetchScores = async () => {
+const fetchMovies = async () => {
   try {
     const data = await (
       await fetch(movieUrl, {
@@ -8,7 +8,7 @@ const fetchScores = async () => {
       })
     ).json();
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i += 1) {
       console.log(data[i]._embedded.show.image.medium);
       const image = ` <li><img src="${data[i]._embedded.show.image.medium}" alt="" /></li>`;
       console.log(moviesList);
@@ -23,8 +23,8 @@ const fetchScores = async () => {
     // )
     // .join('');
   } catch {
-    throw new Error();
+    // throw new Error();
   }
 };
 
-document.addEventListener('DOMContentLoaded', fetchScores);
+export default fetchMovies;
