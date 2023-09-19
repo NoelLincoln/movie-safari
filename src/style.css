@@ -25,6 +25,15 @@
   flex-direction: row;
 }
 
+.display-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-center {
+  text-align: center;
+}
+
 .main-header {
   justify-content: space-between;
   font-family: 'Azonix', sans-serif;
@@ -63,6 +72,7 @@
 
 .movies-list li {
   border: 1px solid;
+  width: 215px;
 }
 
 footer {
