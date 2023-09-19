@@ -39,7 +39,7 @@ const fetchMovies = async () => {
 
       //   console.log(data[i]._embedded.show.image.medium);
       const image = ` <li><img src="${data[i]._embedded.show.image.medium}" alt="" /></li>`;
-      image.appendChild(movieOptions);
+      //   image.appendChild(movieOptions);
       console.log(movieOptions);
       console.log(image);
       moviesList.innerHTML += image;
