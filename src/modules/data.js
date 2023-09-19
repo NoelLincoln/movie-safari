@@ -33,6 +33,8 @@ const fetchMovies = async () => {
 
       commentsBtn.innerText = 'comments';
       reservationBtn.innerText = 'reservation';
+      commentsBtn.classList.add('btn-class');
+      reservationBtn.classList.add('btn-class');
       firstRow.appendChild(nameP);
       firstRow.appendChild(likesContainer);
       firstRow.classList.add('display-flex-row', 'first-row-display');

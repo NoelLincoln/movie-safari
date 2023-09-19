@@ -25,6 +25,18 @@
   flex-direction: row;
 }
 
+.first-row-display {
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px;
+}
+
+.btn-class {
+  height: 30px;
+  font-size: 15px;
+  margin: 5px;
+}
+
 .display-flex-column {
   display: flex;
   flex-direction: column;
