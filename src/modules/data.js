@@ -39,11 +39,13 @@ const fetchMovies = async () => {
       movieOptions.appendChild(firstRow);
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
+      movieOptions.classList.add('display-flex-column');
 
       movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
+
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
-
+      movieItem.classList.add('display-center');
       moviesList.appendChild(movieItem);
     }
 
