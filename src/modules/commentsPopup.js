@@ -4,7 +4,6 @@ const openCommentWindow = (movie) => {
   CommentsPopup.style.display = 'flex';
 
   CommentsPopup.innerHTML = `<div class="top">
-                // eslint-disable-next-line no-underscore-dangle
                 <img class="movie-image" src="${movie._embedded.show.image.medium}"></img>
                 <div id="close-icon">X</div>
             </div>
