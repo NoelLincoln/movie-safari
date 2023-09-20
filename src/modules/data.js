@@ -1,4 +1,5 @@
 import heartIcon from '../assets/img/heart-icon.png';
+import reservationMovies from './reservation.js';
 
 const moviesList = document.querySelector('.movies-list');
 const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
@@ -44,7 +45,6 @@ const fetchMovies = async () => {
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
       movieOptions.classList.add('display-flex-column');
-
       // eslint-disable-next-line no-underscore-dangle
       movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
 
@@ -54,44 +54,17 @@ const fetchMovies = async () => {
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
       reservationBtn.addEventListener('click', () => {
-        reservationMovies(data[i].name,data[i].seasone,data[i].language, data[i].type,data[i]._embedded.show.image.medium);
-        
-         })
+        reservationMovies(data[i].name,
+          data[i].season,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i]._embedded.show.language,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i].type, data[i]._embedded.show.image.medium);
+      });
     }
   } catch {
     // throw new Error();
   }
 };
-const reservationMovies = async (Title,seasone,language,type,src) => {
-  const popup=document.querySelector('.reservation-popup');
-      const popupWindow = document.createElement('div');
-      popupWindow.className = 'popup-window';
-console.log('popupWindow');
-      popupWindow.innerHTML = `
-      <section class="popup">
-        <div>
-          <i class="closing-icon"></i>
-          <image class="popup-image" src="${src}">
-        </div>
-        <ul>
-          <li>${Title}</li>
-          <li>${type}</li>
-          <li>${seasone}</li>
-          <li>${language}</li>
-
-        </ul>
-        <div>
-          <p>Add a reservation</p>
-          <input type="text" name="reservation name" placeholder="Your Name">
-          <input type="number" name="" placeholder="Start date">
-          <button type="submit" id="reserve-btn">Reserve</button>
-        </div>
-      </section>
-      `;
-
-      popup.appendChild(popupWindow);
-    };
-  
-
 
 export default fetchMovies;
