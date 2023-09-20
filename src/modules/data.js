@@ -1,7 +1,9 @@
 import heartIcon from '../assets/img/heart-icon.png';
+import { domCheck } from './movie-likes.js';
 
 const moviesList = document.querySelector('.movies-list');
 const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
+let counter;
 
 const fetchMovies = async () => {
   try {
@@ -50,13 +52,15 @@ const fetchMovies = async () => {
 
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
-      movieItem.classList.add('display-center');
+      movieItem.classList.add('display-center', 'movie-container');
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
+      counter = data.length;
     }
   } catch {
     // throw new Error();
   }
+  domCheck.innerText = counter;
 };
 
 export default fetchMovies;
