@@ -27,7 +27,10 @@ const openCommentWindow = (movie) => {
             </form>`;
   const CloseIcon = document.getElementById('close-icon');
   CloseIcon.addEventListener('click', () => {
+    const MainContinerBlur = document.querySelector('.main-container');
+
     CommentsPopup.style.display = 'none';
+    MainContinerBlur.classList.remove('blur');
   });
   const MainContinerBlur = document.querySelector('.main-container');
 
