@@ -53,10 +53,45 @@ const fetchMovies = async () => {
       movieItem.classList.add('display-center');
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
+      reservationBtn.addEventListener('click', () => {
+        reservationMovies(data[i].name,data[i].seasone,data[i].language, data[i].type,data[i]._embedded.show.image.medium);
+        
+         })
     }
   } catch {
     // throw new Error();
   }
 };
+const reservationMovies = async (Title,seasone,language,type,src) => {
+  const popup=document.querySelector('.reservation-popup');
+      const popupWindow = document.createElement('div');
+      popupWindow.className = 'popup-window';
+console.log('popupWindow');
+      popupWindow.innerHTML = `
+      <section class="popup">
+        <div>
+          <i class="closing-icon"></i>
+          <image class="popup-image" src="${src}">
+        </div>
+        <ul>
+          <li>${Title}</li>
+          <li>${type}</li>
+          <li>${seasone}</li>
+          <li>${language}</li>
+
+        </ul>
+        <div>
+          <p>Add a reservation</p>
+          <input type="text" name="reservation name" placeholder="Your Name">
+          <input type="number" name="" placeholder="Start date">
+          <button type="submit" id="reserve-btn">Reserve</button>
+        </div>
+      </section>
+      `;
+
+      popup.appendChild(popupWindow);
+    };
+  
+
 
 export default fetchMovies;
