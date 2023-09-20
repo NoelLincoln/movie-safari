@@ -1,8 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 const openCommentWindow = (movie) => {
   const CommentsPopup = document.querySelector('.comments-popup');
   CommentsPopup.style.display = 'flex';
 
   CommentsPopup.innerHTML = `<div class="top">
+                // eslint-disable-next-line no-underscore-dangle
                 <img class="movie-image" src="${movie._embedded.show.image.medium}"></img>
                 <div id="close-icon">X</div>
             </div>
@@ -44,15 +46,12 @@ const handleCommentPopup = async () => {
   CommentsPopup.style.display = 'none';
   const viewcommentsbtn = document.querySelectorAll('.viewcomment');
 
-  console.log(viewcommentsbtn);
-
   try {
     const data = await (
       await fetch(movieUrl, {
         method: 'GET',
       })
     ).json();
-    console.log(data);
     Array.from(viewcommentsbtn).forEach((element) => {
       element.addEventListener('click', () => {
         const commentId = element.getAttribute('comment-id');
@@ -60,13 +59,6 @@ const handleCommentPopup = async () => {
           // eslint-disable-next-line comma-dangle
           (movie) => String(movie.id) === commentId
         );
-        console.log(commentId);
-        console.log(
-          'All movie IDs:',
-          data.map((movie) => movie.id)
-        ); // Output all IDs
-
-        console.log(movieObj);
 
         openCommentWindow(movieObj);
       });

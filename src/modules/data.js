@@ -44,6 +44,7 @@ const fetchMovies = async () => {
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
 
+      // eslint-disable-next-line no-underscore-dangle
       movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
