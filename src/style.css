@@ -109,4 +109,26 @@ footer {
   font-family: 'CreativeThoughts', sans-serif;
   font-size: 20px;
 }
+.popup-window {
+  /* display: none; */
+  position: fixed;
+ display: block;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  z-index: 9999;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
 
+.popup-window.active {
+  display: block;
+  overflow-y: auto;
+  background-color: red;
+  z-index: 999;
+  position: fixed;
+  backdrop-filter: blur(5px);
+
+}
