@@ -1,4 +1,5 @@
 import heartIcon from '../assets/img/heart-icon.png';
+import handleCommentPopup from './commentsPopup.js';
 
 const moviesList = document.querySelector('.movies-list');
 const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
@@ -32,6 +33,9 @@ const fetchMovies = async () => {
       //   likesContainer.appendChildl(likesCounter);
 
       commentsBtn.innerText = 'comments';
+      commentsBtn.setAttribute('comment-id', `${data[i].id}`);
+      commentsBtn.classList.add('viewcomment');
+      // commentsBtn.id(`${data[i].id}`);
       reservationBtn.innerText = 'reservation';
       firstRow.appendChild(nameP);
       firstRow.appendChild(likesContainer);
@@ -56,6 +60,7 @@ const fetchMovies = async () => {
   } catch {
     // throw new Error();
   }
+  handleCommentPopup();
 };
 
 export default fetchMovies;
