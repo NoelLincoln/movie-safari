@@ -25,6 +25,45 @@
   flex-direction: row;
 }
 
+.first-row-display {
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px;
+}
+
+.btn-class {
+  height: 30px;
+  font-size: 15px;
+  margin: 5px;
+}
+
+.btn-class:hover {
+  background-color: #007bff;
+  transform: scale(1.02);
+  border: none;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.display-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.heart-btn {
+  background-color: inherit;
+  border: none;
+}
+
+.heart-btn:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
+.display-center {
+  text-align: center;
+}
+
 .main-header {
   justify-content: space-between;
   font-family: 'Azonix', sans-serif;
@@ -43,6 +82,27 @@
 
 .padding {
   padding: 2% 10% 2% 10%;
+}
+
+.main-container {
+  padding: 2% 6% 2% 6%;
+}
+
+.movies-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  list-style: none;
+}
+
+.movies-list li {
+  border: 1px solid;
+  width: 215px;
 }
 
 footer {
