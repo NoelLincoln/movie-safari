@@ -27,36 +27,37 @@ const fetchMovies = async () => {
 
       nameP.innerText = `${data[i].name}`;
       heartImg.setAttribute('src', heartIcon);
-      likesCounter.innerText = '2';
+      likesCounter.innerText = '2 Likes';
       heartBtn.appendChild(heartImg);
+      heartBtn.classList.add('heart-btn');
       likesContainer.appendChild(heartBtn);
-      //   likesContainer.appendChildl(likesCounter);
+      likesContainer.appendChild(likesCounter);
 
       commentsBtn.innerText = 'comments';
       commentsBtn.setAttribute('comment-id', `${data[i].id}`);
       commentsBtn.classList.add('viewcomment');
       // commentsBtn.id(`${data[i].id}`);
       reservationBtn.innerText = 'reservation';
+      commentsBtn.classList.add('btn-class');
+      reservationBtn.classList.add('btn-class');
       firstRow.appendChild(nameP);
       firstRow.appendChild(likesContainer);
+      firstRow.classList.add('display-flex-row', 'first-row-display');
 
       movieOptions.appendChild(firstRow);
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
+      movieOptions.classList.add('display-flex-column');
 
+      // eslint-disable-next-line no-underscore-dangle
       movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
+
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
-
+      movieItem.classList.add('display-center');
+      movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
     }
-
-    // moviesList.innerHTML = data;
-    // .map(
-    //   (movie) =>
-    //     ` <li><img src="${movie._embedded.show.image.medium}" alt="" /></li>`
-    // )
-    // .join('');
   } catch {
     // throw new Error();
   }
