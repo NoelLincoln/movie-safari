@@ -34,10 +34,10 @@ const addComments = () => {
     }
   };
 
-  CommentsForm.innerHTML = ` <h4>Add Comment</h4>
-                <input type="text" placeholder="your name" name="username" id="username" required/>
-                <textarea maxlength="200" rows="4" cols="7" placeholder="Your insight" name="comment" id="comment"></textarea>
-                <button type="submit">Submit</button>
+  CommentsForm.innerHTML = ` 
+                <input type="text" class="comment-input" placeholder="your name" name="username" id="username" required/>
+                <textarea maxlength="200" class="comment-input" rows="4" cols="7" placeholder="Your insight" name="comment" id="comment"></textarea>
+                <button type="submit" class="submit-comment">Submit</button>
 `;
 
   CommentsForm.addEventListener('submit', async (event) => {

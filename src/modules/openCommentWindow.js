@@ -26,6 +26,7 @@ const openCommentWindow = (movie) => {
                 
                 
             </ul>
+            <h4>Add Comment</h4>
             <form id="movie-comments" class="form-comments">
                
             </form>`;

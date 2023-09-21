@@ -3,7 +3,7 @@ const displayComments = async () => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IR7MovTrVQtBQVyC6UTK/comments?item_id=${commentId}`;
 
   const commentsList = document.querySelector('.movie-comments');
-  commentsList.innerHTML = ''; // Clear the previous content
+  commentsList.innerHTML = '';
 
   try {
     const response = await fetch(url, {
@@ -20,7 +20,6 @@ const displayComments = async () => {
     const commentsData = await response.json();
     const commentsCounter = document.querySelector('.comments-counter');
     commentsCounter.innerHTML = `<p>Comments (${commentsData.length})</p>`;
-    console.log('comments fetched', commentsData);
 
     commentsData.forEach((comment) => {
       commentsList.innerHTML += `
@@ -31,6 +30,7 @@ const displayComments = async () => {
         </li>`;
     });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching comments:', error);
   }
 };
