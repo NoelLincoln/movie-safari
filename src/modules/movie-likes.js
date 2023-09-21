@@ -1,4 +1,4 @@
-import likeUrl from './from-api.js';
+import { likeUrl } from './from-api.js';
 
 const domCheck = document.querySelector('.movies-counter');
 const addLike = async (item_id = 'item_id', id) => {
@@ -36,9 +36,8 @@ const like = () => {
     element.addEventListener('click', (e) => {
       const { id } = e.target.closest('.movie-container');
       addLike(parseInt(id, 10));
-      console.log(fetchLikes());
     });
   });
 };
 
-export { domCheck, like };
+export { domCheck, like, fetchLikes };
