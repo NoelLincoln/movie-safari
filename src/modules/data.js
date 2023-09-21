@@ -58,12 +58,15 @@ const fetchMovies = async () => {
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
       reservationBtn.addEventListener('click', () => {
-        reservationMovies(data[i].name,
+        reservationMovies(
+          data[i].name,
           data[i].season,
           // eslint-disable-next-line no-underscore-dangle
           data[i]._embedded.show.language,
           // eslint-disable-next-line no-underscore-dangle
-          data[i].type, data[i]._embedded.show.image.medium);
+          data[i].type,
+          data[i]._embedded.show.image.medium
+        );
       });
     }
   } catch {

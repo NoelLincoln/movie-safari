@@ -1,4 +1,5 @@
 import addComments from './addComments.js';
+import displayComments from './displayComments.js';
 
 const openCommentWindow = (movie) => {
   const CommentsPopup = document.querySelector('.comments-popup');
@@ -20,12 +21,11 @@ const openCommentWindow = (movie) => {
                 <p>Release Date : ${movie.airdate}</p>
                 <p>Language : ${movie._embedded.show.language}</p>
             </div>
-            <h4>Comments</h4>
-            <div class="movie-comments">
-                <div class="date">12-01-2023</div>
-                <div class="user">Alex</div>
-                <div class="user-comment">awesome movie</div>
-            </div>
+            <h4 class="comments-counter"></h4>
+            <ul class="movie-comments">
+                
+                
+            </ul>
             <form id="movie-comments" class="form-comments">
                
             </form>`;
@@ -40,5 +40,6 @@ const openCommentWindow = (movie) => {
 
   MainContinerBlur.classList.add('blur');
   addComments();
+  displayComments();
 };
 export default openCommentWindow;
