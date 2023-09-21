@@ -1,4 +1,6 @@
-const reservationMovies = async (Title, season, language, type, src) => {
+import addReservation from "./addReservation.js";
+
+const reservationMovies = async (Title,id, season, language, type,src) => {
   const popup = document.querySelector('.reservation-popup');
   const popupWindow = document.createElement('div');
   popupWindow.className = 'popup-window';
@@ -11,20 +13,19 @@ const reservationMovies = async (Title, season, language, type, src) => {
          <image class="popup-image" src="${src}">
           </div>
           <ul class="about-img">
-            <li>Titel:${Title}</li>
+            <li class="movie-title" id="${id}">Title:${Title}</li>
             <li>Gener:${type}</li>
             <li>Season:${season}</li>
             <li>Language:${language}</li>
   
           </ul>
           <p class="reservation-count">Reservation(0)</p>
-          <div class="add-reserve">
             <p>Add a reservation</p>
-            <input type="text" name="reservation name" placeholder="Your Name">
-            <input type="date" name="" placeholder="Start date">
-            <input type="date" name="" placeholder="end date">
-  
-            <button type="submit" id="reserve-btn">Reserve</button>
+            <div class="reserve-container"></div>
+            <form id="reserve-form">
+           
+            </form>
+           
           </div>
         </section>
         `;
@@ -34,9 +35,14 @@ const reservationMovies = async (Title, season, language, type, src) => {
   closingIcons.forEach((closingIcon) => {
     closingIcon.addEventListener('click', () => {
       popupWindow.style.display = 'none';
-      // popup.classList.toggle('hidden');
     });
   });
+  // const reserveBtn= document.getElementById('reserve-btn');    
+  // reserveBtn.addEventListener('click', addReservation);
+
+  addReservation();
+ 
 };
+  
 
 export default reservationMovies;
