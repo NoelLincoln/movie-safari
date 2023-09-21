@@ -168,4 +168,57 @@ footer {
 
 .blur {
   filter: blur(4px);
+.popup-window {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  backdrop-filter: blur(5px);
+}
+
+.popup {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  margin: 0 auto;
+  height: 100%;
+  overflow: scroll;
+}
+
+img.popup-image {
+  margin: 20px 0;
+}
+
+.add-reserve {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.closing-icon {
+  position: relative;
+  top: 30px;
+  right: -247px;
+  cursor: pointer;
+}
+
+.about-img {
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.reservation-count {
+  margin-top: 24px;
+  font-size: 28px;
 }

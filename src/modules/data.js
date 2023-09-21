@@ -1,5 +1,6 @@
 import heartIcon from '../assets/img/heart-icon.png';
 import handleCommentPopup from './commentsPopup.js';
+import reservationMovies from './reservation.js';
 
 const moviesList = document.querySelector('.movies-list');
 const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
@@ -48,7 +49,6 @@ const fetchMovies = async () => {
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
       movieOptions.classList.add('display-flex-column');
-
       // eslint-disable-next-line no-underscore-dangle
       movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
 
@@ -57,6 +57,14 @@ const fetchMovies = async () => {
       movieItem.classList.add('display-center');
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
+      reservationBtn.addEventListener('click', () => {
+        reservationMovies(data[i].name,
+          data[i].season,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i]._embedded.show.language,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i].type, data[i]._embedded.show.image.medium);
+      });
     }
   } catch {
     // throw new Error();
