@@ -121,7 +121,7 @@ footer {
   box-sizing: border-box;
   width: 90%;
   margin: auto;
-  height: 90vh;
+  height: 100vh;
   background-color: #f5f5f5;
   margin-top: 10px;
   left: 0;
@@ -134,6 +134,16 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
+}
+
+textarea {
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  width: 100%;
 }
 
 .movie-image {
