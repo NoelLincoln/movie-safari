@@ -20,8 +20,10 @@ const reservationMovies = async (Title,id, season, language, type,src) => {
   
           </ul>
           <p class="reservation-count">Reservation(0)</p>
+            <ul id="reserve-container">
+            </ul>
             <p>Add a reservation</p>
-            <div class="reserve-container"></div>
+
             <form id="reserve-form">
            
             </form>
