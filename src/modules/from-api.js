@@ -3,4 +3,6 @@ const interactionUrl =
 const appId = 'IR7MovTrVQtBQVyC6UTK';
 const likeUrl = `${interactionUrl}/apps/${appId}/likes/`;
 
-export default likeUrl;
+const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
+
+export { likeUrl, movieUrl };
