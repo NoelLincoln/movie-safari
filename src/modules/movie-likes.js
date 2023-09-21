@@ -36,6 +36,13 @@ const like = () => {
     element.addEventListener('click', (e) => {
       const { id } = e.target.closest('.movie-container');
       addLike(parseInt(id, 10));
+      const likesCounterConainer = e.target
+        .closest('.movie-container')
+        .querySelector('.likes-counter');
+      const likesCounter = likesCounterConainer.innerText;
+      const matches = parseInt(likesCounter.match(/(\d+)/)[0], 10) + 1;
+      likesCounterConainer.innerText = '';
+      likesCounterConainer.innerText = `${matches.toString()} Likes`;
     });
   });
 };
