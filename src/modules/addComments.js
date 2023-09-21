@@ -14,9 +14,13 @@ const addComments = () => {
       });
       if (response.ok) {
         const okstatus = document.createElement('div');
+        okstatus.setAttribute('id', 'message');
         okstatus.innerHTML = ` <p>Comment Added</p>
         `;
         CommentsForm.appendChild(okstatus);
+        setTimeout(() => {
+          document.getElementById('message').innerHTML = '';
+        }, 3000);
       }
 
       if (!response.ok) {
