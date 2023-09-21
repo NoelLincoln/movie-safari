@@ -43,6 +43,7 @@ const fetchMovies = async () => {
 
       nameP.innerText = `${data[i].name}`;
       heartImg.setAttribute('src', heartIcon);
+      likesCounter.classList.add('likes-counter');
       likesCheck(data[i].id, likesCounter);
       heartBtn.appendChild(heartImg);
       heartBtn.classList.add('heart-btn');
@@ -75,7 +76,7 @@ const fetchMovies = async () => {
   } catch {
     // throw new Error();
   }
-  domCheck.innerText = counter;
+  domCheck.innerText = `${counter} Movies`;
 };
 
 export default fetchMovies;
