@@ -1,4 +1,5 @@
 import heartIcon from '../assets/img/heart-icon.png';
+import handleCommentPopup from './commentsPopup.js';
 import reservationMovies from './reservation.js';
 
 const moviesList = document.querySelector('.movies-list');
@@ -34,6 +35,9 @@ const fetchMovies = async () => {
       likesContainer.appendChild(likesCounter);
 
       commentsBtn.innerText = 'comments';
+      commentsBtn.setAttribute('comment-id', `${data[i].id}`);
+      commentsBtn.classList.add('viewcomment');
+      // commentsBtn.id(`${data[i].id}`);
       reservationBtn.innerText = 'reservation';
       commentsBtn.classList.add('btn-class');
       reservationBtn.classList.add('btn-class');
@@ -65,6 +69,7 @@ const fetchMovies = async () => {
   } catch {
     // throw new Error();
   }
+  handleCommentPopup();
 };
 
 export default fetchMovies;
