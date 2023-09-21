@@ -169,6 +169,7 @@ footer {
 .blur {
   filter: blur(4px);
 }
+
 .popup-window {
   position: fixed;
   display: block;
