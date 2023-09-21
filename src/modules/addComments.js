@@ -1,3 +1,5 @@
+import displayComments from './displayComments.js';
+
 const addComments = () => {
   const url =
     'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IR7MovTrVQtBQVyC6UTK/comments';
@@ -53,7 +55,7 @@ const addComments = () => {
 
     CommentsForm.reset();
     await postComment(data);
-    // displayComments();
+    displayComments();
   });
 };
 
