@@ -21,19 +21,18 @@ describe('displayComments', () => {
     // Arrange
     const mockResponse = {
       ok: true,
-      json: () =>
-        Promise.resolve([
-          {
-            creation_date: '2023-09-23',
-            username: 'User1',
-            comment: 'Comment 1',
-          },
-          {
-            creation_date: '2023-09-24',
-            username: 'User2',
-            comment: 'Comment 2',
-          },
-        ]),
+      json: () => Promise.resolve([
+        {
+          creation_date: '2023-09-23',
+          username: 'User1',
+          comment: 'Comment 1',
+        },
+        {
+          creation_date: '2023-09-24',
+          username: 'User2',
+          comment: 'Comment 2',
+        },
+      ]),
     };
 
     // Mock the fetch call to return the mock response
@@ -67,7 +66,7 @@ describe('displayComments', () => {
     // Verify that the error message is logged to the console
     expect(consoleErrorSpy).toHaveBeenCalledWith(
       'Error fetching comments:',
-      expect.any(Error)
+      expect.any(Error),
     );
 
     // check that the DOM remains unchanged in this case
