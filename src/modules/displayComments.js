@@ -14,7 +14,7 @@ const displayComments = async () => {
     });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Error fetching comments:');
     }
 
     const commentsData = await response.json();
