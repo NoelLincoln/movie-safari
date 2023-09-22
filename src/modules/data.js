@@ -1,6 +1,8 @@
 import heartIcon from '../assets/img/heart-icon.png';
 import { domCheck, fetchLikes } from './movie-likes.js';
 import { movieUrl } from './from-api.js';
+import handleCommentPopup from './commentsPopup.js';
+import reservationMovies from './reservation.js';
 
 const moviesList = document.querySelector('.movies-list');
 let counter = 0;
@@ -51,6 +53,9 @@ const fetchMovies = async () => {
       likesContainer.appendChild(likesCounter);
 
       commentsBtn.innerText = 'comments';
+      commentsBtn.setAttribute('comment-id', `${data[i].id}`);
+      commentsBtn.classList.add('viewcomment');
+      // commentsBtn.id(`${data[i].id}`);
       reservationBtn.innerText = 'reservation';
       commentsBtn.classList.add('btn-class');
       reservationBtn.classList.add('btn-class');
@@ -62,7 +67,6 @@ const fetchMovies = async () => {
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
       movieOptions.classList.add('display-flex-column');
-
       // eslint-disable-next-line no-underscore-dangle
       movieImg.setAttribute('src', `${data[i]._embedded.show.image.medium}`);
 
@@ -72,10 +76,22 @@ const fetchMovies = async () => {
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
       counter += 1;
+      reservationBtn.addEventListener('click', () => {
+        reservationMovies(
+          data[i].name,
+          data[i].season,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i]._embedded.show.language,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i].type,
+          data[i]._embedded.show.image.medium
+        );
+      });
     }
   } catch {
     // throw new Error();
   }
+  handleCommentPopup();
   domCheck.innerText = `${counter} Movies`;
 };
 

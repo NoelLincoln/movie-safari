@@ -1,5 +1,6 @@
 import './style.css';
 import logo from './assets/img/movie-safari-logo.png';
+
 import fetchMovies from './modules/data.js';
 import { domCheck, like } from './modules/movie-likes.js';
 
