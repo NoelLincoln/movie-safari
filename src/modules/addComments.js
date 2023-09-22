@@ -1,8 +1,7 @@
 import displayComments from './displayComments.js';
 
 const addComments = () => {
-  const url =
-    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IR7MovTrVQtBQVyC6UTK/comments';
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IR7MovTrVQtBQVyC6UTK/comments';
   const CommentsForm = document.querySelector('.form-comments');
 
   const postComment = async (data) => {

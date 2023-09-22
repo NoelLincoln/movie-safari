@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import addComments from './addComments.js';
 import displayComments from './displayComments.js';
 import Close from '../assets/img/Close-icon.png';
