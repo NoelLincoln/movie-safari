@@ -1,6 +1,6 @@
 import './style.css';
 import logo from './assets/img/movie-safari-logo.png';
-
+import movieCounter from './modules/movie-counter.js';
 import fetchMovies from './modules/data.js';
 import { domCheck, like } from './modules/movie-likes.js';
 
@@ -14,4 +14,5 @@ document.addEventListener('DOMContentLoaded', fetchMovies);
 
 domCheck.addEventListener('DOMNodeInserted', () => {
   like();
+  movieCounter();
 });
