@@ -1,9 +1,27 @@
+/* eslint-disable no-underscore-dangle */
 import heartIcon from '../assets/img/heart-icon.png';
+import { domCheck, fetchLikes } from './movie-likes.js';
+import { movieUrl } from './from-api.js';
 import handleCommentPopup from './commentsPopup.js';
 import reservationMovies from './reservation.js';
 
 const moviesList = document.querySelector('.movies-list');
-const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
+let counter = 0;
+
+const likesCheck = (movieId, node) => {
+  fetchLikes().then((data) => {
+    try {
+      const movieLikes = data.filter((movie) => movie.item_id === movieId);
+      if (typeof movieLikes[0] === 'undefined') {
+        node.innerText = `${0} Likes`;
+      } else {
+        node.innerText = `${movieLikes[0].likes} Likes`;
+      }
+    } catch {
+      // throw new Error();
+    }
+  });
+};
 
 const fetchMovies = async () => {
   try {
@@ -28,7 +46,8 @@ const fetchMovies = async () => {
 
       nameP.innerText = `${data[i].name}`;
       heartImg.setAttribute('src', heartIcon);
-      likesCounter.innerText = '2 Likes';
+      likesCounter.classList.add('likes-counter');
+      likesCheck(data[i].id, likesCounter);
       heartBtn.appendChild(heartImg);
       heartBtn.classList.add('heart-btn');
       likesContainer.appendChild(heartBtn);
@@ -54,19 +73,21 @@ const fetchMovies = async () => {
 
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
-      movieItem.classList.add('display-center');
+      movieItem.classList.add('display-center', 'movie-container');
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
+      counter += 1;
       reservationBtn.addEventListener('click', () => {
         reservationMovies(
           data[i].name,
           data[i].season,
-          // eslint-disable-next-line no-underscore-dangle
           data[i]._embedded.show.language,
           // eslint-disable-next-line no-underscore-dangle
           data[i].type,
           // eslint-disable-next-line no-underscore-dangle
           data[i]._embedded.show.image.medium
+          data[i].type,
+          data[i]._embedded.show.image.medium,
         );
       });
     }
@@ -74,6 +95,7 @@ const fetchMovies = async () => {
     // throw new Error();
   }
   handleCommentPopup();
+  domCheck.innerText = `${counter} Movies`;
 };
 
 export default fetchMovies;
