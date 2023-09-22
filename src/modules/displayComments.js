@@ -13,13 +13,15 @@ const displayComments = async () => {
       },
     });
 
-    if (!response.ok) {
-      throw new Error('Error fetching comments:');
+    const commentsCounter = document.querySelector('.comments-counter');
+
+    if (response.error === 400) {
+      commentsCounter.innerHTML = '<p>Comments (0)</p>';
     }
 
     const commentsData = await response.json();
-    const commentsCounter = document.querySelector('.comments-counter');
-    commentsCounter.innerHTML = `<p>Comments (${commentsData.length})</p>`;
+
+    commentsCounter.innerHTML = `<p>Comments (${commentsData.length || 0})</p>`;
 
     commentsData.forEach((comment) => {
       commentsList.innerHTML += `
