@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import heartIcon from '../assets/img/heart-icon.png';
 import { domCheck, fetchLikes } from './movie-likes.js';
 import { movieUrl } from './from-api.js';
@@ -80,11 +81,9 @@ const fetchMovies = async () => {
         reservationMovies(
           data[i].name,
           data[i].season,
-          // eslint-disable-next-line no-underscore-dangle
           data[i]._embedded.show.language,
-          // eslint-disable-next-line no-underscore-dangle
           data[i].type,
-          data[i]._embedded.show.image.medium
+          data[i]._embedded.show.image.medium,
         );
       });
     }
