@@ -110,6 +110,15 @@ footer {
   font-size: 20px;
 }
 
+.close-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.close-icon:hover {
+  transform: scale(1.1);
+}
+
 .comments-popup {
   font-family: 'CreativeThoughts', sans-serif;
   position: fixed;

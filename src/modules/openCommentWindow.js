@@ -1,5 +1,6 @@
 import addComments from './addComments.js';
 import displayComments from './displayComments.js';
+import Close from '../assets/img/Close-icon.png';
 
 const openCommentWindow = (movie) => {
   const CommentsPopup = document.querySelector('.comments-popup');
@@ -7,7 +8,7 @@ const openCommentWindow = (movie) => {
 
   CommentsPopup.innerHTML = `<div class="top">
                 <div></div>
-                <div id="close-icon">X</div>
+                <div id="close-icon"></div>
 
             </div>
           <div class=image-container>
@@ -31,6 +32,10 @@ const openCommentWindow = (movie) => {
                
             </form>`;
   const CloseIcon = document.getElementById('close-icon');
+  const CloseIconImg = document.createElement('img');
+  CloseIconImg.src = Close;
+  CloseIconImg.classList.add('close-icon');
+  CloseIcon.appendChild(CloseIconImg);
   CloseIcon.addEventListener('click', () => {
     const MainContinerBlur = document.querySelector('.main-container');
 
