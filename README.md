@@ -37,7 +37,7 @@
 
 # 📖 Movie Safari <a name="about-project"></a>
 
-**Movie-safari** , your ultimate destination for all things cinema. Explore the latest movie reviews, trailers, news, and behind-the-scenes insights.
+**Movie safari** , your ultimate destination for all things cinema. Explore the latest movie reviews, trailers, news, and behind-the-scenes insights.
 .
 
 ## 🛠 Built With <a name="built-with"></a>
