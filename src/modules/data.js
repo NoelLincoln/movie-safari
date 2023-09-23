@@ -1,8 +1,26 @@
+/* eslint-disable no-underscore-dangle */
 import heartIcon from '../assets/img/heart-icon.png';
-import reservationMovies from './reservation.js';
+import { domCheck, fetchLikes } from './movie-likes.js';
+import { movieUrl } from './from-api.js';
+import handleReservePopup from './reservePopup.js';
 
 const moviesList = document.querySelector('.movies-list');
-const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
+let counter = 0;
+
+const likesCheck = (movieId, node) => {
+  fetchLikes().then((data) => {
+    try {
+      const movieLikes = data.filter((movie) => movie.item_id === movieId);
+      if (typeof movieLikes[0] === 'undefined') {
+        node.innerText = `${0} Likes`;
+      } else {
+        node.innerText = `${movieLikes[0].likes} Likes`;
+      }
+    } catch {
+      // throw new Error();
+    }
+  });
+};
 
 const fetchMovies = async () => {
   try {
@@ -27,14 +45,17 @@ const fetchMovies = async () => {
 
       nameP.innerText = `${data[i].name}`;
       heartImg.setAttribute('src', heartIcon);
-      likesCounter.innerText = '2 Likes';
+      likesCounter.classList.add('likes-counter');
+      likesCheck(data[i].id, likesCounter);
       heartBtn.appendChild(heartImg);
       heartBtn.classList.add('heart-btn');
       likesContainer.appendChild(heartBtn);
       likesContainer.appendChild(likesCounter);
 
-      commentsBtn.innerText = 'comments';
       reservationBtn.innerText = 'reservation';
+      reservationBtn.setAttribute('reserve-id', `${data[i].id}`);
+      reservationBtn.classList.add('view-reservation');
+      commentsBtn.innerText = 'Comments';
       commentsBtn.classList.add('btn-class');
       reservationBtn.classList.add('btn-class');
       firstRow.appendChild(nameP);
@@ -50,21 +71,16 @@ const fetchMovies = async () => {
 
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
-      movieItem.classList.add('display-center');
+      movieItem.classList.add('display-center', 'movie-container');
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
-      reservationBtn.addEventListener('click', () => {
-        reservationMovies(data[i].name, data[i].id,
-          data[i].season,
-          // eslint-disable-next-line no-underscore-dangle
-          data[i]._embedded.show.language,
-          // eslint-disable-next-line no-underscore-dangle
-          data[i].type, data[i]._embedded.show.image.medium);
-      });
+      counter += 1;
     }
   } catch {
     // throw new Error();
   }
+  handleReservePopup();
+  domCheck.innerText = `${counter} Movies`;
 };
 
 export default fetchMovies;
