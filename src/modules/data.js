@@ -3,7 +3,6 @@ import heartIcon from '../assets/img/heart-icon.png';
 import { domCheck, fetchLikes } from './movie-likes.js';
 import { movieUrl } from './from-api.js';
 import handleCommentPopup from './commentsPopup.js';
-import reservationMovies from './reservation.js';
 
 const moviesList = document.querySelector('.movies-list');
 let counter = 0;
@@ -77,19 +76,6 @@ const fetchMovies = async () => {
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
       counter += 1;
-      reservationBtn.addEventListener('click', () => {
-        reservationMovies(
-          data[i].name,
-          data[i].season,
-          data[i]._embedded.show.language,
-          // eslint-disable-next-line no-underscore-dangle
-          data[i].type,
-          // eslint-disable-next-line no-underscore-dangle
-          data[i]._embedded.show.image.medium,
-          data[i].type,
-          data[i]._embedded.show.image.medium,
-        );
-      });
     }
   } catch {
     // throw new Error();
