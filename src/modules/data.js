@@ -3,6 +3,7 @@ import heartIcon from '../assets/img/heart-icon.png';
 import { domCheck, fetchLikes } from './movie-likes.js';
 import { movieUrl } from './from-api.js';
 import handleReservePopup from './reservePopup.js';
+
 const moviesList = document.querySelector('.movies-list');
 let counter = 0;
 
@@ -86,4 +87,3 @@ const fetchMovies = async () => {
 };
 
 export default fetchMovies;
-
