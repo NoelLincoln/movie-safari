@@ -1,12 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 import heartIcon from '../assets/img/heart-icon.png';
-import { domCheck, fetchLikes } from './movie-likes.js';
+import { fetchLikes, like } from './movie-likes.js';
 import { movieUrl } from './from-api.js';
 import handleCommentPopup from './commentsPopup.js';
 import handleReservePopup from './reservePopup.js';
+import movieCounter from './movie-counter.js';
 
 const moviesList = document.querySelector('.movies-list');
-let counter = 0;
 
 const likesCheck = (movieId, node) => {
   fetchLikes().then((data) => {
@@ -81,14 +81,14 @@ const fetchMovies = async () => {
       movieItem.classList.add('display-center', 'movie-container');
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
-      counter += 1;
     }
   } catch {
     // throw new Error();
   }
   handleCommentPopup();
   handleReservePopup();
-  domCheck.innerText = `${counter} Movies`;
+  like();
+  movieCounter();
 };
 
 export default fetchMovies;
