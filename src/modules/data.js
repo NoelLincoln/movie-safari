@@ -1,28 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable no-underscore-dangle */
 import heartIcon from '../assets/img/heart-icon.png';
 import { domCheck, fetchLikes } from './movie-likes.js';
 import { movieUrl } from './from-api.js';
 import handleReservePopup from './reservePopup.js';
-import reservationMovies from './reservation.js';
-
 const moviesList = document.querySelector('.movies-list');
-let counter = 0;
-
-const likesCheck = (movieId, node) => {
-  fetchLikes().then((data) => {
-    try {
-      const movieLikes = data.filter((movie) => movie.item_id === movieId);
-      if (typeof movieLikes[0] === 'undefined') {
-        node.innerText = `${0} Likes`;
-      } else {
-        node.innerText = `${movieLikes[0].likes} Likes`;
-      }
-    } catch {
-      // throw new Error();
-    }
-  });
-};
 let counter = 0;
 
 const likesCheck = (movieId, node) => {
