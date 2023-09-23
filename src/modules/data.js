@@ -82,6 +82,10 @@ const fetchMovies = async () => {
           data[i].name,
           data[i].season,
           data[i]._embedded.show.language,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i].type,
+          // eslint-disable-next-line no-underscore-dangle
+          data[i]._embedded.show.image.medium,
           data[i].type,
           data[i]._embedded.show.image.medium,
         );

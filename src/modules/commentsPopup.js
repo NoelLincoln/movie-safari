@@ -1,42 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-const openCommentWindow = (movie) => {
-  const CommentsPopup = document.querySelector('.comments-popup');
-  CommentsPopup.style.display = 'flex';
+// import displayComments from './displayComments.js';
 
-  CommentsPopup.innerHTML = `<div class="top">
-                <img class="movie-image" src="${movie._embedded.show.image.medium}"></img>
-                <div id="close-icon">X</div>
-            </div>
-
-            <h4 class="movie-title">${movie.name}</h4>
-            <div class="movie-details">
-                <p>Season : ${movie.season}</p>
-                <p>Genre : ${movie._embedded.show.type}</p>
-                <p>Release Date : ${movie.airdate}</p>
-                <p>Language : ${movie._embedded.show.language}</p>
-            </div>
-            <h4>Comments</h4>
-            <div class="movie-comments">
-                <div class="date">12-01-2023</div>
-                <div class="user">Alex</div>
-                <div class="user-comment">awesome movie</div>
-            </div>
-            <form id="movie-comments" class="form-comments">
-                <h4>Add Comment</h4>
-                <input type="text" placeholder="your name" required/>
-                <textarea maxlength="200" rows="4" cols="7" placeholder="Your insight"></textarea>
-            </form>`;
-  const CloseIcon = document.getElementById('close-icon');
-  CloseIcon.addEventListener('click', () => {
-    const MainContinerBlur = document.querySelector('.main-container');
-
-    CommentsPopup.style.display = 'none';
-    MainContinerBlur.classList.remove('blur');
-  });
-  const MainContinerBlur = document.querySelector('.main-container');
-
-  MainContinerBlur.classList.add('blur');
-};
+import openCommentWindow from './openCommentWindow.js';
 
 const handleCommentPopup = async () => {
   const movieUrl = 'https://api.tvmaze.com/schedule/web?date=2020-05-29';
@@ -68,5 +33,6 @@ const handleCommentPopup = async () => {
   }
 };
 handleCommentPopup();
+// displayComments;
 
 export default handleCommentPopup;
