@@ -3,6 +3,7 @@ import heartIcon from '../assets/img/heart-icon.png';
 import { domCheck, fetchLikes } from './movie-likes.js';
 import { movieUrl } from './from-api.js';
 import handleCommentPopup from './commentsPopup.js';
+import handleReservePopup from './reservePopup.js';
 
 const moviesList = document.querySelector('.movies-list');
 let counter = 0;
@@ -47,16 +48,17 @@ const fetchMovies = async () => {
       heartImg.setAttribute('src', heartIcon);
       likesCounter.classList.add('likes-counter');
       likesCheck(data[i].id, likesCounter);
+      likesCounter.classList.add('likes-counter');
+      likesCheck(data[i].id, likesCounter);
       heartBtn.appendChild(heartImg);
       heartBtn.classList.add('heart-btn');
       likesContainer.appendChild(heartBtn);
       likesContainer.appendChild(likesCounter);
 
-      commentsBtn.innerText = 'comments';
-      commentsBtn.setAttribute('comment-id', `${data[i].id}`);
-      commentsBtn.classList.add('viewcomment');
-      // commentsBtn.id(`${data[i].id}`);
       reservationBtn.innerText = 'reservation';
+      reservationBtn.setAttribute('reserve-id', `${data[i].id}`);
+      reservationBtn.classList.add('view-reservation');
+      commentsBtn.innerText = 'Comments';
       commentsBtn.classList.add('btn-class');
       reservationBtn.classList.add('btn-class');
       firstRow.appendChild(nameP);
@@ -73,6 +75,7 @@ const fetchMovies = async () => {
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
       movieItem.classList.add('display-center', 'movie-container');
+      movieItem.classList.add('display-center', 'movie-container');
       movieItem.setAttribute('id', `${data[i].id}`);
       moviesList.appendChild(movieItem);
       counter += 1;
@@ -80,7 +83,7 @@ const fetchMovies = async () => {
   } catch {
     // throw new Error();
   }
-  handleCommentPopup();
+  handleReservePopup();
   domCheck.innerText = `${counter} Movies`;
 };
 

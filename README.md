@@ -1,10 +1,8 @@
-
-
 <a name="readme-top"></a>
 
 <div align="center">
 
-  <h3><b>Movie Safari</b></h3>
+  <img src="https://github.com/NoelLincoln/movie-safari/assets/43038485/201387d0-cb3a-4331-99d3-f5e477807727" alt="logo" width="140"/>
 
 </div>
 
@@ -66,8 +64,10 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Minimalistic**
-- **User-friendly**
+- **Displays the movies on load**
+- **Add Like to a movie**
+- **Add reservation for a movie**
+- **Add comment to a movie**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,11 +120,9 @@ To run the project run :
 
 To run tests, run the following command:
 
-
 ```sh
   npx jest
 ```
-
 
 ### Deployment
 
@@ -176,7 +174,8 @@ Feel free to check the [issues page](https://github.com/NoelLincoln/movie-safari
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project feel free to contact me.
+If you like this project please give it a star and follow the authers on github linkedIn and Twitter
+, you are also welcome for any suggestions🙏
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

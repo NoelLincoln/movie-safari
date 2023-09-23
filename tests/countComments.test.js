@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import countComments from '../../src/modules/countComments.js';
+import countComments from '../src/modules/countComments.js';
 
 describe('countComments', () => {
   beforeEach(() => {
