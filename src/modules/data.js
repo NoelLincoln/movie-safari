@@ -60,6 +60,9 @@ const fetchMovies = async () => {
       reservationBtn.classList.add('view-reservation');
       commentsBtn.innerText = 'Comments';
       commentsBtn.classList.add('btn-class');
+      commentsBtn.classList.add('viewcomment');
+      commentsBtn.setAttribute('comment-id', `${data[i].id}`);
+
       reservationBtn.classList.add('btn-class');
       firstRow.appendChild(nameP);
       firstRow.appendChild(likesContainer);
@@ -83,6 +86,7 @@ const fetchMovies = async () => {
   } catch {
     // throw new Error();
   }
+  handleCommentPopup();
   handleReservePopup();
   domCheck.innerText = `${counter} Movies`;
 };

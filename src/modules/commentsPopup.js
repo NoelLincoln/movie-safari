@@ -9,6 +9,7 @@ const handleCommentPopup = async () => {
   const CommentsPopup = document.querySelector('.comments-popup');
   CommentsPopup.style.display = 'none';
   const viewcommentsbtn = document.querySelectorAll('.viewcomment');
+  console.log(viewcommentsbtn);
 
   try {
     const data = await (
