@@ -1,5 +1,3 @@
-
-
 <a name="readme-top"></a>
 
 <div align="center">
@@ -122,11 +120,9 @@ To run the project run :
 
 To run tests, run the following command:
 
-
 ```sh
   npx jest
 ```
-
 
 ### Deployment
 
