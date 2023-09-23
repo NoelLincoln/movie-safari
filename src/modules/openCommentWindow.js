@@ -23,7 +23,7 @@ const openCommentWindow = (movie) => {
                 <p>Release Date : ${movie.airdate}</p>
                 <p>Language : ${movie._embedded.show.language}</p>
             </div>
-            <h4 class="comments-counter"></h4>
+            <h4 class="comments-counter">Comments(0)</h4>
             <ul class="movie-comments">
                 
                 

@@ -1,9 +1,11 @@
+import countComments from './countComments.js';
+
 const displayComments = async () => {
   const commentId = document.querySelector('.movie-title').id;
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IR7MovTrVQtBQVyC6UTK/comments?item_id=${commentId}`;
 
   const commentsList = document.querySelector('.movie-comments');
-  commentsList.innerHTML = '';
+  // commentsList.innerHTML = '';
 
   try {
     const response = await fetch(url, {
@@ -13,15 +15,13 @@ const displayComments = async () => {
       },
     });
 
-    const commentsCounter = document.querySelector('.comments-counter');
+    // const commentsCounter = document.querySelector('.comments-counter');
 
-    if (response.error === 400) {
-      commentsCounter.innerHTML = '<p>Comments (0)</p>';
-    }
+    // if (response.error === 400) {
+    //   commentsCounter.innerHTML = '<p>Comments (0)</p>';
+    // }
 
     const commentsData = await response.json();
-
-    commentsCounter.innerHTML = `<p>Comments (${commentsData.length || 0})</p>`;
 
     commentsData.forEach((comment) => {
       commentsList.innerHTML += `
@@ -35,6 +35,7 @@ const displayComments = async () => {
     // eslint-disable-next-line no-console
     console.error('Error fetching comments:', error);
   }
+  countComments();
 };
 
 export default displayComments;
