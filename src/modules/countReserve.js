@@ -4,9 +4,9 @@ const countReserve = () => {
 
   ReservationNodes.forEach(() => {
     if (ReserveCounter.childNodes.length === 0) {
-      ReserveCounter.innerHTML = '<p>Reservation (0)</p>';
+      ReserveCounter.innerHTML = '<p>reservation (0)</p>';
     } else {
-      ReserveCounter.innerHTML = `<p>Reservation (${ReservationNodes.length})</p>`;
+      ReserveCounter.innerHTML = `<p>reservation (${ReservationNodes.length})</p>`;
     }
   });
 };

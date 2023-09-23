@@ -23,7 +23,7 @@ const openReserveWindow = (movie) => {
                 <p>Release Date : ${movie.airdate}</p>
                 <p>Language : ${movie._embedded.show.language}</p>
             </div>
-            <h4 class="reserve-counter">Reservations (0)</h4>
+            <h4 class="reserve-counter">reservations (0)</h4>
             <ul class="movie-reservation">
                 
                 
