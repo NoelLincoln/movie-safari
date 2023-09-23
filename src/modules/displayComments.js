@@ -7,7 +7,6 @@ const displayComments = async () => {
   const commentsList = document.querySelector('.movie-comments');
   commentsList.innerHTML = '';
 
-
   try {
     const response = await fetch(url, {
       method: 'GET',
