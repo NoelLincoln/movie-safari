@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import movieCounter from './movie-counter.js';
+import movieCounter from '../src/modules/movie-counter.js';
 
 document.body.innerHTML = `
   <div class="movie-container"></div>
