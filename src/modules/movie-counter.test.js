@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import movieCounter from './movie-counter.js';
 
 document.body.innerHTML = `
@@ -10,5 +13,5 @@ test('movieCounter updates the movies count correctly', () => {
   movieCounter();
 
   const moviesNumber = document.querySelector('.movies-count');
-  expect(moviesNumber.innerText).toBe('(2)'); // Adjust the expected value as per your test case
+  expect(moviesNumber.innerText).toBe('(2)');
 });
