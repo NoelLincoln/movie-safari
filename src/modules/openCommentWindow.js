@@ -1,9 +1,12 @@
 import addComments from './addComments.js';
 import displayComments from './displayComments.js';
 import Close from '../assets/img/Close-icon.png';
-import { showTypePath, imagePath, showLanguagePath } from './path.js';
 
 const openCommentWindow = (movie) => {
+  const { _embedded } = movie;
+  const imagePath = _embedded.show.image.medium;
+  const genre = _embedded.show.genres.join(', ');
+  const { language } = _embedded.show;
   const CommentsPopup = document.querySelector('.comments-popup');
   CommentsPopup.style.display = 'flex';
 
@@ -13,14 +16,14 @@ const openCommentWindow = (movie) => {
 
             </div>
           <div class=image-container>
-                <img class="movie-image" src="${[movie][imagePath]}"></img>
+                <img class="movie-image" src="${imagePath}"></img>
             </div>
             <h4 class="movie-title" id="${movie.id}">${movie.name}</h4>
             <div class="movie-details">
-                <p>Season : ${[movie][showTypePath]}</p>
-                <p>Genre : ${[movie][showTypePath]}</p>
+            <p>Season : ${movie.season}</p>
+                <p>Genre : ${genre}</p>
                 <p>Release Date : ${movie.airdate}</p>
-                <p>Language : ${[movie][showLanguagePath]}</p>
+                <p>Language : ${language}</p>
             </div>
             <h4 class="comments-counter">Comments(0)</h4>
             <ul class="movie-comments">

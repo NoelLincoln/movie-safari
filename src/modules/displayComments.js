@@ -25,7 +25,7 @@ const displayComments = async () => {
         </li>`;
     });
   } catch (error) {
-    throw new Error();
+    // throw new Error();
   }
   countComments();
 };

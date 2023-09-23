@@ -22,7 +22,7 @@ const handleReservePopup = async () => {
       });
     });
   } catch (error) {
-    throw new Error('Network response was not ok', error);
+    // throw new Error('Network response was not ok', error);
   }
 };
 handleReservePopup();

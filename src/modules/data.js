@@ -4,7 +4,6 @@ import { movieUrl } from './from-api.js';
 import handleCommentPopup from './commentsPopup.js';
 import handleReservePopup from './reservePopup.js';
 import movieCounter from './movie-counter.js';
-import { imagePath } from './path.js';
 
 const moviesList = document.querySelector('.movies-list');
 
@@ -18,7 +17,7 @@ const likesCheck = (movieId, node) => {
         node.innerText = `${movieLikes[0].likes} Likes`;
       }
     } catch {
-      throw new Error();
+      // throw new Error();
     }
   });
 };
@@ -72,8 +71,9 @@ const fetchMovies = async () => {
       movieOptions.appendChild(commentsBtn);
       movieOptions.appendChild(reservationBtn);
       movieOptions.classList.add('display-flex-column');
-      movieImg.setAttribute('src', `${data[i][imagePath]}`);
-
+      const { _embedded } = data[i];
+      const imagePath = _embedded.show.image.medium;
+      movieImg.setAttribute('src', `${imagePath}`);
       movieItem.appendChild(movieImg);
       movieItem.appendChild(movieOptions);
       movieItem.classList.add('display-center', 'movie-container');
@@ -82,7 +82,7 @@ const fetchMovies = async () => {
       moviesList.appendChild(movieItem);
     }
   } catch {
-    throw new Error();
+    // throw new Error();
   }
   handleCommentPopup();
   handleReservePopup();
