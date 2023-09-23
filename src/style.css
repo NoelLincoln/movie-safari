@@ -183,9 +183,9 @@ textarea {
 }
 
 .movie-image {
-  width: 300px;
+  width: 70%;
   height: 250px;
-  margin-left: 34rem;
+  margin: auto;
 }
 
 .top {

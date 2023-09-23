@@ -1,7 +1,7 @@
-/* eslint-disable no-underscore-dangle */
 import addReserve from './addReserve.js';
 import displayReserve from './displayReserve.js';
 import Close from '../assets/img/Close-icon.png';
+import { imagePath, showTypePath, showLanguagePath } from './path.js';
 
 const openReserveWindow = (movie) => {
   const ReservePopup = document.querySelector('.reserve-popup');
@@ -13,15 +13,15 @@ const openReserveWindow = (movie) => {
 
             </div>
           <div class=image-container>
-                <img class="movie-image" src="${movie._embedded.show.image.medium}"></img>
+                <img class="movie-image" src="${[movie][imagePath]}"></img>
 
             </div>
             <h4 class="movie-title" id="${movie.id}">${movie.name}</h4>
             <div class="movie-details">
                 <p>Season : ${movie.season}</p>
-                <p>Genre : ${movie._embedded.show.type}</p>
+                <p>Genre : ${[movie][showTypePath]}</p>
                 <p>Release Date : ${movie.airdate}</p>
-                <p>Language : ${movie._embedded.show.language}</p>
+                <p>Language : ${[movie][showLanguagePath]}</p>
             </div>
             <h4 class="reserve-counter">reservations (0)</h4>
             <ul class="movie-reservation">

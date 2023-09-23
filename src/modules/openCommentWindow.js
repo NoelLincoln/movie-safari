@@ -1,7 +1,7 @@
-/* eslint-disable no-underscore-dangle */
 import addComments from './addComments.js';
 import displayComments from './displayComments.js';
 import Close from '../assets/img/Close-icon.png';
+import { showTypePath, imagePath, showLanguagePath } from './path.js';
 
 const openCommentWindow = (movie) => {
   const CommentsPopup = document.querySelector('.comments-popup');
@@ -13,15 +13,14 @@ const openCommentWindow = (movie) => {
 
             </div>
           <div class=image-container>
-                <img class="movie-image" src="${movie._embedded.show.image.medium}"></img>
-
+                <img class="movie-image" src="${[movie][imagePath]}"></img>
             </div>
             <h4 class="movie-title" id="${movie.id}">${movie.name}</h4>
             <div class="movie-details">
-                <p>Season : ${movie.season}</p>
-                <p>Genre : ${movie._embedded.show.type}</p>
+                <p>Season : ${[movie][showTypePath]}</p>
+                <p>Genre : ${[movie][showTypePath]}</p>
                 <p>Release Date : ${movie.airdate}</p>
-                <p>Language : ${movie._embedded.show.language}</p>
+                <p>Language : ${[movie][showLanguagePath]}</p>
             </div>
             <h4 class="comments-counter">Comments(0)</h4>
             <ul class="movie-comments">

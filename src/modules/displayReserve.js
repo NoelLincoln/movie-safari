@@ -30,8 +30,7 @@ const displayReserve = async () => {
         </li>`;
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Error fetching comments:', error);
+    throw new Error('Error fetching comments:', error);
   }
   countReserve();
 };

@@ -28,7 +28,6 @@ const addReserve = () => {
         throw new Error('Network response was not ok');
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
       throw new Error('Network response was not ok', error);
     }
   };

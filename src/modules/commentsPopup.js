@@ -1,6 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-// import displayComments from './displayComments.js';
-
 import openCommentWindow from './openCommentWindow.js';
 
 const handleCommentPopup = async () => {
@@ -19,20 +16,13 @@ const handleCommentPopup = async () => {
     Array.from(viewcommentsbtn).forEach((element) => {
       element.addEventListener('click', () => {
         const commentId = element.getAttribute('comment-id');
-        const movieObj = data.find(
-          // eslint-disable-next-line comma-dangle
-          (movie) => String(movie.id) === commentId
-        );
-
+        const movieObj = data.find((movie) => String(movie.id) === commentId);
         openCommentWindow(movieObj);
       });
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     throw new Error('Network response was not ok', error);
   }
 };
 handleCommentPopup();
-// displayComments;
-
 export default handleCommentPopup;

@@ -5,7 +5,6 @@ const displayComments = async () => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IR7MovTrVQtBQVyC6UTK/comments?item_id=${commentId}`;
 
   const commentsList = document.querySelector('.movie-comments');
-  // commentsList.innerHTML = '';
 
   try {
     const response = await fetch(url, {
@@ -14,12 +13,6 @@ const displayComments = async () => {
         'Content-Type': 'application/json',
       },
     });
-
-    // const commentsCounter = document.querySelector('.comments-counter');
-
-    // if (response.error === 400) {
-    //   commentsCounter.innerHTML = '<p>Comments (0)</p>';
-    // }
 
     const commentsData = await response.json();
 
@@ -32,8 +25,7 @@ const displayComments = async () => {
         </li>`;
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Error fetching comments:', error);
+    throw new Error();
   }
   countComments();
 };
