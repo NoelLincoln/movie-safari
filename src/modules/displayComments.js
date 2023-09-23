@@ -5,6 +5,8 @@ const displayComments = async () => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IR7MovTrVQtBQVyC6UTK/comments?item_id=${commentId}`;
 
   const commentsList = document.querySelector('.movie-comments');
+  commentsList.innerHTML = '';
+
 
   try {
     const response = await fetch(url, {
