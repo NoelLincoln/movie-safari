@@ -10,6 +10,3 @@ imgTag.classList.add('logo');
 logoContainer.appendChild(imgTag);
 
 document.addEventListener('DOMContentLoaded', fetchMovies);
-
-// document.addEventListener('DOMContentLoaded', addReservation );
-// addReservation();
